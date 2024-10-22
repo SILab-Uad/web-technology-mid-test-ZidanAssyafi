@@ -10,9 +10,7 @@
     <div class="container">
         <h1>Password Generator</h1>
         <!-- TODO: Create an input field for password length (between 8-128 characters) -->
-        <label for="length">Password Length:</label>
-        <br> 
-        <br>
+        <label for="length">Password Length:</label><br><br>
         <input type="number" id="length" value="12" min="8" max="128">
 
         <h3>Select criteria:</h3>
@@ -29,18 +27,21 @@
         <label>
             <input type="checkbox" id="includeSpecialChars"> Include Special Characters
         </label><br><br>
+        
         <!-- TODO: Create a button to generate the password -->
-            <button id="generateBtn">Generate Password</button>
-            <br>
-        <br>
+        <button id="generateBtn">Generate Password</button><br><br>
+                
         <!-- TODO: Create a text field to display the generated password -->
+        <label for="passwordOutput"></label>
+        <input type="text" id="passwordOutput" readonly>
         <p id="passwordOutput"></p>
 
+
         <!-- BONUS: Add a "Copy to Clipboard" button -->
-        <button id="copyBtn" class="copyBtn">Copy to Clipboard</button>
+        <button id="copyBtn">Copy to Clipboard</button>
     </div>
 
-    <script src="dom.js"></script>
     <script src="script.js"></script>
+    <script type="module" src="dom.js"></script>
 </body>
 </html>

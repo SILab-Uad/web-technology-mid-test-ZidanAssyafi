@@ -1,32 +1,24 @@
-// TODO: Implement the password generation logic based on user input
-const generatePassword = (length, options) => {
-    // Character sets for password generation
+export const generatePassword = (length, options) => {
     const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const lowercase = "abcdefghijklmnopqrstuvwxyz";
     const numbers = "0123456789";
-    const specialChars = "!@#$%^&*()_+-/,.";
+    const specialChars = "!@#$%^&*()";
 
-    // TODO: Buat variabel untuk kumpulan karakter berdasarkan opsi yang dipilih
-    let availablechar = '';
-    if (options.includeUppercase) availablechar += uppercase;
-    if (options.includeLowercase) availablechar += lowercase;
-    if (options.includeNumbers) availablechar += numbers;
-    if (options.includeSpecialChars) availablechar += specialChars;
+    let setChar = '';
+    if (options.includeUppercase) setChar += uppercase;
+    if (options.includeLowercase) setChar += lowercase;
+    if (options.includeNumbers) setChar += numbers;
+    if (options.includeSpecialChars) setChar += specialChars;
 
-    if (availablechar === '') {
-        return 'Pilih minimal satu jenis karakter!!';
+    if (setChar === '') {
+        throw new Error('At least one character type must be selected.');
     }
 
-     // TODO: Hasilkan kata sandi berdasarkan kriteria yang dipilih
     let password = '';
-    for (let i = 0; i < length; i++){
-        const randomindex = Math.floor(Math.random() * availablechar.length);
-        password += availablechar[randomindex];
+    for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * setChar.length);
+        password += setChar[randomIndex];
     }
 
     return password;
 };
-
-// TODO: Tambahkan pendengar acara ke tombol untuk memanggil generatePassword dan menampilkan hasilnya
-
-// BONUS: Terapkan fungsionalitas salin ke papan klip
